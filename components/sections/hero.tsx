@@ -45,6 +45,13 @@ export function Hero() {
     }
   }, []);
 
+  const scrollToSection = (sectionId: string) => {
+    const section = document.getElementById(sectionId);
+    if (section) {
+      section.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
   return (
     <section className="relative min-h-screen flex items-center pt-16 overflow-hidden bg-gradient-to-b from-background to-background/90">
       <div className="absolute inset-0 opacity-30 dark:opacity-20">
@@ -71,11 +78,20 @@ export function Hero() {
           </p>
           
           <div ref={ctaRef} className="mt-10 flex flex-col sm:flex-row gap-4 justify-center">
-            <Button size="lg" className="text-base">
+            <Button 
+              size="lg" 
+              className="text-base"
+              onClick={() => scrollToSection('portfolio')}
+            >
               View My Work
               <ArrowRight className="ml-2 h-4 w-4" />
             </Button>
-            <Button size="lg" variant="outline" className="text-base">
+            <Button 
+              size="lg" 
+              variant="outline" 
+              className="text-base"
+              onClick={() => scrollToSection('contact')}
+            >
               Get in Touch
             </Button>
           </div>
